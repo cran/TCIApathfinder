@@ -1,9 +1,15 @@
-fc74468ac30d659f7ee5175c76a69ec0 *DESCRIPTION
+b2d2322e2f3bd49f11578550388d3c8f *DESCRIPTION
 c6f2ee9f61391f01991043c644d70a15 *LICENSE
 2538657cc32a51052160c5b4e453a7bc *NAMESPACE
-10f0b2db2aa062cc5c30b6fb8f64e535 *NEWS.md
 4aadf9bfe5100f8af3768fa353eb9c0c *R/TCIApathfinder.R
 c34ab3d14fbf584af36bbdd11a5acf1d *R/util.R
+da9380f8902bc2578ecea53c69ec832a *build/vignette.rds
+1d42d430007c95f281b6f15ea08f6a39 *inst/doc/introduction.R
+2b0341d2d56bc652eaa16559d395b74b *inst/doc/introduction.Rmd
+a9df136d30cfc0a3a52d00bbbe590a13 *inst/doc/introduction.html
+c6a6b9ea3752b0819397412c9d9d0443 *inst/doc/radiomics.R
+541a9b906a549c25dfdc4126a24db656 *inst/doc/radiomics.Rmd
+460bc04707493be0a149ca0415405a35 *inst/doc/radiomics.html
 c79aedf49b80d8ddf1bd2706609fbae0 *man/get_body_part_names.Rd
 914ab9aab7e971a22b7d9ddd7b58555f *man/get_collection_names.Rd
 0e88ac32af02f752ac17b23e3651bf1e *man/get_manufacturer_names.Rd
@@ -38,3 +44,5 @@ e7c820eb725f2684e658410579384055 *tests/testthat/test_get_studies_in_collection.
 90ede2602f9b90982d59e02beb4a3b07 *tests/testthat/test_save_image_series.R
 f2bb91665f244cf375c3ed0745010fe6 *tests/testthat/test_save_single_image.R
 151f2068fe14ee867731e71b451e0cff *tests/testthat/test_user_agent.R
+2b0341d2d56bc652eaa16559d395b74b *vignettes/introduction.Rmd
+541a9b906a549c25dfdc4126a24db656 *vignettes/radiomics.Rmd
