@@ -12,7 +12,7 @@
 
 <meta name="author" content="Pamela Russell" />
 
-<meta name="date" content="2017-09-11" />
+<meta name="date" content="2018-01-24" />
 
 <title>TCIApathfinder and downstream analysis</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">TCIApathfinder and downstream analysis</h1>
 <h4 class="author"><em>Pamela Russell</em></h4>
-<h4 class="date"><em>2017-09-11</em></h4>
+<h4 class="date"><em>2018-01-24</em></h4>
 
 
 
@@ -86,7 +86,7 @@ patient &lt;-<span class="st"> &quot;TCGA-AR-A1AQ&quot;</span>
 series &lt;-<span class="st"> </span><span class="kw">get_series_info</span>(<span class="dt">patient_id =</span> patient)
 
 <span class="co"># Pick an image series to download</span>
-series_instance_uid &lt;-<span class="st"> </span><span class="kw">as.character</span>(series$series[<span class="dv">1</span>, <span class="st">&quot;series_instance_uid&quot;</span>])
+series_instance_uid &lt;-<span class="st"> </span><span class="kw">as.character</span>(series<span class="op">$</span>series[<span class="dv">1</span>, <span class="st">&quot;series_instance_uid&quot;</span>])
 
 <span class="co"># Download and unzip the image series</span>
 ser &lt;-<span class="st"> </span><span class="kw">save_image_series</span>(<span class="dt">series_instance_uid =</span> series_instance_uid, <span class="dt">out_dir =</span> <span class="st">&quot;~/Desktop&quot;</span>, <span class="dt">out_file_name =</span> <span class="st">&quot;series1.zip&quot;</span>)
@@ -104,41 +104,8 @@ img_array_3d &lt;-<span class="st"> </span><span class="kw">create3D</span>(dico
 
 <span class="co"># Check the dimensions of the 3D array</span>
 <span class="kw">dim</span>(img_array_3d)</code></pre></div>
-<pre><code>## [1] 256 256  36</code></pre>
+<pre><code>## [1] 256 256 116</code></pre>
 <p>Note that this series consists of 116 DICOM images. Each image is 256x256 pixels.</p>
-</div>
-<div id="use-the-radiomics-package-to-extract-features-from-images" class="section level2">
-<h2>Use the “radiomics” package to extract features from images</h2>
-<p>The <a href="https://CRAN.R-project.org/package=radiomics">radiomics</a> package provides functions to calculate first and second order statistics from grayscale images. See radiomics package documentation for further information.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(radiomics))
-
-<span class="co"># Pick one of the image slices</span>
-img_array &lt;-<span class="st"> </span>img_array_3d[, , <span class="dv">1</span>]
-img_matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(img_array, <span class="kw">dim</span>(img_array))
-
-<span class="co"># Calculate basic image features</span>
-<span class="kw">calc_features</span>(img_matrix)</code></pre></div>
-<pre><code>##   calc_energy calc_entropy calc_kurtosis calc_meanDeviation calc_skewness
-## 1   125683610     4.620808      185.7081           14.26662      9.266714
-##   calc_uniformity calc_mean calc_median calc_max calc_min calc_variance
-## 1      0.05375624  35.05847          31      853        0      688.6938
-##   calc_RMS  calc_sd
-## 1 43.79246 26.24298</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Analyze the grey level co-occurrence matrix</span>
-glcm &lt;-<span class="st"> </span><span class="kw">glcm</span>(img_matrix)
-<span class="kw">calc_features</span>(glcm)</code></pre></div>
-<pre><code>##   glcm_mean glcm_variance glcm_autoCorrelation glcm_cProminence
-## 1  1.834536      2.043861             4.002711         1880.031
-##   glcm_cShade glcm_cTendency glcm_contrast glcm_correlation
-## 1    30.00833       7.362101     0.8133425        0.8010279
-##   glcm_differenceEntropy glcm_dissimilarity glcm_energy glcm_entropy
-## 1               1.247342          0.5283241   0.1929883     2.002612
-##   glcm_homogeneity1 glcm_homogeneity2 glcm_IDMN  glcm_IDN
-## 1         0.7604096         0.7551098  0.999229 0.9842117
-##   glcm_inverseVariance glcm_maxProb glcm_sumAverage glcm_sumEntropy
-## 1            0.4318814    0.3217218        5.669072        2.246996
-##   glcm_sumVariance
-## 1         20.26713</code></pre>
 </div>
 <div id="download-genomic-data-for-this-patient-from-the-cancer-genome-atlas" class="section level2">
 <h2>Download genomic data for this patient from The Cancer Genome Atlas</h2>
