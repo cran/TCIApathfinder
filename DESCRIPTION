@@ -1,6 +1,6 @@
 Package: TCIApathfinder
 Title: Client for the Cancer Imaging Archive REST API
-Version: 1.0.2
+Version: 1.0.3
 Authors@R: person("Pamela", "Russell", email = "pamela.russell@ucdenver.edu", role = c("aut", "cre"))
 Description: A wrapper for The Cancer Imaging Archive's REST API. The Cancer
     Imaging Archive (TCIA) hosts de-identified medical images of cancer
@@ -18,8 +18,8 @@ RoxygenNote: 6.0.1
 Suggests: knitr, rmarkdown, oro.dicom, testthat
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2018-01-24 23:48:43 UTC; Pamela
+Packaged: 2019-02-19 20:14:16 UTC; Pamela
 Author: Pamela Russell [aut, cre]
 Maintainer: Pamela Russell <pamela.russell@ucdenver.edu>
 Repository: CRAN
-Date/Publication: 2018-01-24 23:54:33 UTC
+Date/Publication: 2019-02-19 21:30:14 UTC
