@@ -1,14 +1,14 @@
-## ----echo = F, message = F-----------------------------------------------
+## ----echo = FALSE, message = FALSE---------------------------------------
 api_key <- Sys.getenv("TCIA_API_KEY")
-if(identical(api_key, "")) {
+if (identical(api_key, "")) {
   knitr::opts_chunk$set(eval = FALSE)
   message("Note: code examples will not be evaluated because the system does not have a valid API key installed.")
 }
 
-## ----eval = F------------------------------------------------------------
+## ----eval = FALSE--------------------------------------------------------
 #  install.packages("TCIApathfinder")
 
-## ----eval = F------------------------------------------------------------
+## ----eval = FALSE--------------------------------------------------------
 #  # install.packages("devtools")
 #  devtools::install_github("pamelarussell/TCIApathfinder")
 
@@ -50,12 +50,17 @@ head(sop_uids$sop_instance_uids)
 
 ## ------------------------------------------------------------------------
 im <- save_single_image(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.3344.4002.298037359751562809791703106256",
-                  sop_instance_uid = "1.3.6.1.4.1.14519.5.2.1.3344.4002.113224119964450170072494597907",
-                  out_dir = "~/Desktop")
+                  sop_instance_uid = "1.3.6.1.4.1.14519.5.2.1.3344.4002.113224119964450170072494597907")
 im$out_file
 
 ## ------------------------------------------------------------------------
 ser <- save_image_series(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.3344.4002.298037359751562809791703106256",
-                         out_dir = "~/Desktop", out_file_name = "series.zip")
-ser$out_file
+                         out_file_name = "series.zip")
+zip <- ser$out_file
+extracted <- extract_image_series(zip)
+extracted$dirs
+
+## ------------------------------------------------------------------------
+ser <- save_extracted_image_series(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867")
+ser$dirs
 
