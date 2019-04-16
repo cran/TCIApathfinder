@@ -1,7 +1,7 @@
-257fea146616fc3d85467964d3da8119 *DESCRIPTION
+d1558fb3ca95199af357841bd407ba82 *DESCRIPTION
 c6f2ee9f61391f01991043c644d70a15 *LICENSE
 d35439b3c9e12602d4cb4e52843c225e *NAMESPACE
-0653e4d2de3541baaa2738c7cb72a038 *NEWS.md
+cf488626c9e2b22ab30ce124fd502ce4 *NEWS.md
 1fbbe4c59fa9942d5b8438559fc0e0fb *R/TCIApathfinder.R
 20f28c5c7d5063179c1b827edad58202 *R/extract_image_series.R
 e818ec45ed1b558b30a7929196c0ef0f *R/util.R
@@ -10,10 +10,10 @@ c27e3c6b6c2c509d3420ec696a1913dd *build/vignette.rds
 a1459ba2d462de24933267d98e76c4d0 *inst/CITATION
 d02fbc7b2f04b04d410594da2ec98ec7 *inst/doc/introduction.R
 c76224fc57d73ec2f3c8a0cfa3e7c60a *inst/doc/introduction.Rmd
-8d6efcac6180e2304bec54adc257d719 *inst/doc/introduction.html
+394ef01b0bc96ac955f85cdf1ae1f28e *inst/doc/introduction.html
 119ff846d3f0ace6feab571051acbe74 *inst/doc/radiomics.R
 b6d5ca0d327801aef2929dcaa35fd9b8 *inst/doc/radiomics.Rmd
-c4439e7a186040471755f7792c5c0700 *inst/doc/radiomics.html
+1dba09e69ad7c7617b243ac18151b680 *inst/doc/radiomics.html
 c79aedf49b80d8ddf1bd2706609fbae0 *man/get_body_part_names.Rd
 914ab9aab7e971a22b7d9ddd7b58555f *man/get_collection_names.Rd
 0e88ac32af02f752ac17b23e3651bf1e *man/get_manufacturer_names.Rd
