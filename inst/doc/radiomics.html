@@ -12,7 +12,7 @@
 
 <meta name="author" content="Pamela Russell" />
 
-<meta name="date" content="2019-04-16" />
+<meta name="date" content="2019-09-21" />
 
 <title>TCIApathfinder and downstream analysis</title>
 
@@ -291,6 +291,9 @@ code > span.al { color: #ff0000; font-weight: bold; }
 code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
 </style>
 
+
+
+
 </head>
 
 <body>
@@ -299,8 +302,8 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 
 <h1 class="title toc-ignore">TCIApathfinder and downstream analysis</h1>
-<h4 class="author"><em>Pamela Russell</em></h4>
-<h4 class="date"><em>2019-04-16</em></h4>
+<h4 class="author">Pamela Russell</h4>
+<h4 class="date">2019-09-21</h4>
 
 
 
@@ -319,23 +322,20 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb1-10" data-line-number="10">series_instance_uid &lt;-<span class="st"> </span><span class="kw">as.character</span>(series<span class="op">$</span>series[<span class="dv">1</span>, <span class="st">&quot;series_instance_uid&quot;</span>])</a>
 <a class="sourceLine" id="cb1-11" data-line-number="11"></a>
 <a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co"># Download and unzip the image series</span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">ser &lt;-<span class="st"> </span><span class="kw">save_extracted_image_series</span>(<span class="dt">series_instance_uid =</span> series_instance_uid)</a></code></pre></div>
-<pre><code>## Downloading Series</code></pre>
-<pre><code>## Unzipping Series</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">dicom_dir &lt;-<span class="st"> </span>ser<span class="op">$</span>dirs</a></code></pre></div>
+<a class="sourceLine" id="cb1-13" data-line-number="13">ser &lt;-<span class="st"> </span><span class="kw">save_extracted_image_series</span>(<span class="dt">series_instance_uid =</span> series_instance_uid)</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">dicom_dir &lt;-<span class="st"> </span>ser<span class="op">$</span>dirs</a></code></pre></div>
 </div>
 <div id="use-the-oro.dicom-package-to-load-the-image-series" class="section level2">
 <h2>Use the “oro.dicom” package to load the image series</h2>
 <p>The <a href="https://CRAN.R-project.org/package=oro.dicom">oro.dicom</a> package provides functions to process image files in DICOM format, which is the format used by TCIA. See oro.dicom package documentation for further details.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(oro.dicom))</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co"># Read in the DICOM images and create a 3D array of intensities</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">dicom_list &lt;-<span class="st"> </span><span class="kw">readDICOM</span>(dicom_dir)</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">img_array_3d &lt;-<span class="st"> </span><span class="kw">create3D</span>(dicom_list)</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co"># Check the dimensions of the 3D array</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="kw">dim</span>(img_array_3d)</a></code></pre></div>
-<pre><code>## [1] 256 256  36</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(oro.dicom))</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co"># Read in the DICOM images and create a 3D array of intensities</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">dicom_list &lt;-<span class="st"> </span><span class="kw">readDICOM</span>(dicom_dir)</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">img_array_3d &lt;-<span class="st"> </span><span class="kw">create3D</span>(dicom_list)</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co"># Check the dimensions of the 3D array</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="kw">dim</span>(img_array_3d)</a></code></pre></div>
 <p>Note that this series consists of 116 DICOM images. Each image is 256x256 pixels.</p>
 </div>
 <div id="download-genomic-data-for-this-patient-from-the-cancer-genome-atlas" class="section level2">

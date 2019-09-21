@@ -6,28 +6,28 @@ if(identical(api_key, "")) {
 }
 
 ## ------------------------------------------------------------------------
-library(TCIApathfinder)
-
-# Pick a patient of interest
-patient <- "TCGA-AR-A1AQ"
-
-# Get information on all image series for this patient
-series <- get_series_info(patient_id = patient)
-
-# Pick an image series to download
-series_instance_uid <- as.character(series$series[1, "series_instance_uid"])
-
-# Download and unzip the image series
-ser <- save_extracted_image_series(series_instance_uid = series_instance_uid)
-dicom_dir <- ser$dirs
+#  library(TCIApathfinder)
+#  
+#  # Pick a patient of interest
+#  patient <- "TCGA-AR-A1AQ"
+#  
+#  # Get information on all image series for this patient
+#  series <- get_series_info(patient_id = patient)
+#  
+#  # Pick an image series to download
+#  series_instance_uid <- as.character(series$series[1, "series_instance_uid"])
+#  
+#  # Download and unzip the image series
+#  ser <- save_extracted_image_series(series_instance_uid = series_instance_uid)
+#  dicom_dir <- ser$dirs
 
 ## ------------------------------------------------------------------------
-suppressPackageStartupMessages(library(oro.dicom))
-
-# Read in the DICOM images and create a 3D array of intensities
-dicom_list <- readDICOM(dicom_dir)
-img_array_3d <- create3D(dicom_list)
-
-# Check the dimensions of the 3D array
-dim(img_array_3d)
+#  suppressPackageStartupMessages(library(oro.dicom))
+#  
+#  # Read in the DICOM images and create a 3D array of intensities
+#  dicom_list <- readDICOM(dicom_dir)
+#  img_array_3d <- create3D(dicom_list)
+#  
+#  # Check the dimensions of the 3D array
+#  dim(img_array_3d)
 

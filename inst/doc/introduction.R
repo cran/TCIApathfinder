@@ -13,54 +13,54 @@ if (identical(api_key, "")) {
 #  devtools::install_github("pamelarussell/TCIApathfinder")
 
 ## ------------------------------------------------------------------------
-library(TCIApathfinder)
+#  library(TCIApathfinder)
 
 ## ------------------------------------------------------------------------
-collections <- get_collection_names()
-head(collections$collection_names)
+#  collections <- get_collection_names()
+#  head(collections$collection_names)
 
 ## ------------------------------------------------------------------------
-modalities <- get_modality_names()
-head(modalities$modalities)
+#  modalities <- get_modality_names()
+#  head(modalities$modalities)
 
 ## ------------------------------------------------------------------------
-body_parts <- get_body_part_names()
-head(body_parts$body_parts)
+#  body_parts <- get_body_part_names()
+#  head(body_parts$body_parts)
 
 ## ------------------------------------------------------------------------
-patients_tcga_brca <- get_patient_info(collection = "TCGA-BRCA")
-head(patients_tcga_brca$patients)
+#  patients_tcga_brca <- get_patient_info(collection = "TCGA-BRCA")
+#  head(patients_tcga_brca$patients)
 
 ## ------------------------------------------------------------------------
-series <- get_series_info(patient_id = "TCGA-AR-A1AQ")
-head(series$series)
+#  series <- get_series_info(patient_id = "TCGA-AR-A1AQ")
+#  head(series$series)
 
 ## ------------------------------------------------------------------------
-studies <- get_patient_studies(patient_id = "TCGA-AR-A1AQ")
-head(studies$patient_studies)
+#  studies <- get_patient_studies(patient_id = "TCGA-AR-A1AQ")
+#  head(studies$patient_studies)
 
 ## ------------------------------------------------------------------------
-studies_tcga_brca <- get_studies_in_collection(collection = "TCGA-BRCA")
-head(studies_tcga_brca$studies)
+#  studies_tcga_brca <- get_studies_in_collection(collection = "TCGA-BRCA")
+#  head(studies_tcga_brca$studies)
 
 ## ------------------------------------------------------------------------
-sop_uids <- get_sop_instance_uids(
-  series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.3344.4002.298037359751562809791703106256")
-head(sop_uids$sop_instance_uids)
+#  sop_uids <- get_sop_instance_uids(
+#    series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.3344.4002.298037359751562809791703106256")
+#  head(sop_uids$sop_instance_uids)
 
 ## ------------------------------------------------------------------------
-im <- save_single_image(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.3344.4002.298037359751562809791703106256",
-                  sop_instance_uid = "1.3.6.1.4.1.14519.5.2.1.3344.4002.113224119964450170072494597907")
-im$out_file
+#  im <- save_single_image(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.3344.4002.298037359751562809791703106256",
+#                    sop_instance_uid = "1.3.6.1.4.1.14519.5.2.1.3344.4002.113224119964450170072494597907")
+#  im$out_file
 
 ## ------------------------------------------------------------------------
-ser <- save_image_series(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.3344.4002.298037359751562809791703106256",
-                         out_file_name = "series.zip")
-zip <- ser$out_file
-extracted <- extract_image_series(zip)
-extracted$dirs
+#  ser <- save_image_series(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.3344.4002.298037359751562809791703106256",
+#                           out_file_name = "series.zip")
+#  zip <- ser$out_file
+#  extracted <- extract_image_series(zip)
+#  extracted$dirs
 
 ## ------------------------------------------------------------------------
-ser <- save_extracted_image_series(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867")
-ser$dirs
+#  ser <- save_extracted_image_series(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867")
+#  ser$dirs
 
